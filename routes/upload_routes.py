@@ -5,6 +5,8 @@ from services.pdf_reader import extract_text
 from services.preprocessing import clean_text, advanced_preprocessing
 from services.chunk_service import split_sentences
 from services.chunk_service import extract_propositions
+from services.embedding_service import embed_sentences
+from services.vectorization import create_index, save_index
 
 app = Flask(__name__)
 
@@ -19,7 +21,10 @@ def upload_file():
             processed_text = advanced_preprocessing(cleaned_text)
             sentences = split_sentences(processed_text)
             propositions = extract_propositions(cleaned_text)
-            return redirect(url_for('display', filename=filename, sentences=sentences, propositions=propositions))
+            embeddings = embed_sentences(propositions)
+            vector_index = create_index(embeddings)
+            save_index(vector_index, "vector_store/faiss.index")
+            return redirect(url_for('display', filename=filename, sentences=sentences, propositions=propositions, embeddings=embeddings))
     return render_template('templates\\summary.html')
 
 if __name__ == '__main__':
