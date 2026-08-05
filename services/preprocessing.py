@@ -25,14 +25,16 @@ def clean_text(pdf_path):
 
 cleaned_corpus = clean_text('path/to/your/pdf/file.pdf')
 
-#Tokenize the cleaned text
-tokenized_corpus = word_tokenize(cleaned_corpus)
+def advanced_preprocessing(cleaned_corpus):
+    #Tokenize the cleaned text
+    tokenized_corpus = word_tokenize(cleaned_corpus)
 
-#Remove stop words
-stop_words = set(stopwords.words('english'))
-filtered_corpus = [word for word in tokenized_corpus if word not in stop_words]
+    #Remove stop words
+    stop_words = set(stopwords.words('english'))
+    filtered_corpus = [word for word in tokenized_corpus if word not in stop_words]
 
-#Lemmatize the filtered text
-lemmatizer = WordNetLemmatizer()
-lemmatized_corpus = [lemmatizer.lemmatize(word) for word in filtered_corpus]
+    #Lemmatize the filtered text
+    lemmatizer = WordNetLemmatizer()
+    lemmatized_corpus = [lemmatizer.lemmatize(word) for word in filtered_corpus]
 
+    return lemmatized_corpus
