@@ -1,11 +1,11 @@
-import fitz
+from pypdf import PdfReader
 import re
 import string
 from bs4 import BeautifulSoup
 
-def extract_text(pdf_path):
+def extract_text(file):
     text = ""
-    with fitz.open(pdf_path) as doc:
-        for page in doc:
-            text += page.get_text()
+    with PdfReader(file) as doc:
+        for page in doc.pages:
+            text += page.extract_text()
     return text

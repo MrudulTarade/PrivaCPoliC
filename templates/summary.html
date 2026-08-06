@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy Summary</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body{
+
+            background:linear-gradient(135deg,#021B33,#04395E,#0A4D68);
+            min-height:100vh;
+            color:white;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            padding:40px;
+
+        }
+
+        .container{
+
+            width:90%;
+            max-width:950px;
+
+            background:rgba(255,255,255,0.08);
+            backdrop-filter:blur(12px);
+            border:1px solid rgba(255,255,255,0.15);
+
+            border-radius:20px;
+
+            padding:50px;
+
+            box-shadow:0 20px 50px rgba(0,0,0,0.35);
+
+        }
+
+        h1{
+
+            text-align:center;
+            font-size:3rem;
+            margin-bottom:15px;
+
+        }
+
+        .highlight{
+
+            color:#6DE1FF;
+
+        }
+
+        .subtitle{
+
+            text-align:center;
+            color:#d9edf8;
+            margin-bottom:40px;
+
+        }
+
+        .summary-box{
+
+            background:rgba(255,255,255,0.05);
+
+            border-left:5px solid #3DDCFF;
+
+            border-radius:12px;
+
+            padding:30px;
+
+            line-height:1.9;
+
+            color:#eef8fd;
+
+            font-size:1.05rem;
+
+            text-align:justify;
+
+        }
+
+        .buttons{
+
+            margin-top:40px;
+
+            display:flex;
+
+            justify-content:center;
+
+            gap:20px;
+
+            flex-wrap:wrap;
+
+        }
+
+        .btn{
+
+            text-decoration:none;
+
+            padding:15px 35px;
+
+            border-radius:40px;
+
+            font-weight:600;
+
+            transition:.3s;
+
+        }
+
+        .primary{
+
+            background:#3DDCFF;
+
+            color:#03263F;
+
+        }
+
+        .primary:hover{
+
+            background:#73EAFF;
+
+        }
+
+        .secondary{
+
+            background:#00C897;
+
+            color:white;
+
+        }
+
+        .secondary:hover{
+
+            background:#17D8A5;
+
+        }
+
+        @media(max-width:768px){
+
+            .container{
+
+                padding:30px;
+
+            }
+
+            h1{
+
+                font-size:2.2rem;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>
+        Privacy Policy <span class="highlight">Summary</span>
+    </h1>
+
+    <p class="subtitle">
+        AI-generated summary of the uploaded Privacy Policy.
+    </p>
+
+    <div class="summary-box">
+
+        {{ summary }}
+
+    </div>
+
+    <div class="buttons">
+
+        <a href="/" class="btn primary">
+            📄 Upload Another PDF
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -6,14 +6,13 @@ from nltk.stem import WordNetLemmatizer
 from services.pdf_reader import extract_text
 
 
-nltk.download('punkt')
-nltk.download('punkt_tab')
-nltk.download('stopwords')
-nltk.download('wordnet')
+nltk.download('punkt', quiet=True)
+nltk.download('punkt_tab', quiet=True)
+nltk.download('stopwords', quiet=True)
+nltk.download('wordnet', quiet=True)
 
 #Clean the text
-def clean_text(pdf_path):
-    text = extract_text(pdf_path)
+def clean_text(text):
     text = text.lower()
     text = BeautifulSoup(text, "html.parser").get_text()
     text = re.sub(r'\d+', '', text)
@@ -23,7 +22,6 @@ def clean_text(pdf_path):
     text = re.sub(r'\s+', ' ', text).strip()
     return text
 
-cleaned_corpus = clean_text('path/to/your/pdf/file.pdf')
 
 def advanced_preprocessing(cleaned_corpus):
     #Tokenize the cleaned text

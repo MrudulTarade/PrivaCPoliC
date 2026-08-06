@@ -1,4 +1,8 @@
 /.venv
-
+/__pycache__
+*.pyc
 routes/__pycache__/__init__.cpython-312.pyc
 routes/__pycache__/upload_routes.cpython-312.pyc
+services/__pycache__/pdf_reader.cpython-312.pyc
+*.pyc
+services/__pycache__/pdf_reader.cpython-312.pyc

@@ -1,7 +1,8 @@
 import spacy
 
+nlp = spacy.load("en_core_web_sm")
+
 def extract_propositions(text):
-    nlp = spacy.load("en_core_web_sm")
     doc = nlp(text)
     propositions = []
     for sent in doc.sents:

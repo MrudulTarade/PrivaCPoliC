@@ -1,6 +1,5 @@
 import faiss
 import numpy as np
-import pickle
 
 def create_index(embeddings):
     embeddings = np.array(embeddings).astype("float32")
