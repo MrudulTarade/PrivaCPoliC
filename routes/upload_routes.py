@@ -7,6 +7,7 @@ from services.chunk_service import split_sentences
 from services.chunk_service import extract_propositions
 from services.embedding_service import embed_sentences
 from services.vectorization import create_index, save_index
+from services.summary_service import generate_summary
 
 app = Flask(__name__)
 
@@ -24,7 +25,8 @@ def upload_file():
             embeddings = embed_sentences(propositions)
             vector_index = create_index(embeddings)
             save_index(vector_index, "vector_store/faiss.index")
-            return redirect(url_for('display', filename=filename, sentences=sentences, propositions=propositions, embeddings=embeddings))
+            summary = generate_summary(cleaned_text)
+            return redirect(url_for('display', filename=filename, sentences=sentences, propositions=propositions, embeddings=embeddings, summary=summary))
     return render_template('templates\\summary.html')
 
 if __name__ == '__main__':
