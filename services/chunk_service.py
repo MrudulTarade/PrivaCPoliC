@@ -1,5 +1,6 @@
 import spacy
 
+
 nlp = spacy.load("en_core_web_sm")
 
 def extract_propositions(text):

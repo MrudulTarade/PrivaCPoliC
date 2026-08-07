@@ -1,5 +1,6 @@
+import pickle
 from fileinput import filename
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, redirect, url_for, session
 from werkzeug.utils import secure_filename
 from services.pdf_reader import extract_text
 from services.preprocessing import clean_text, advanced_preprocessing
@@ -25,8 +26,17 @@ def upload_file():
             cleaned_text = clean_text(text)
             processed_text = advanced_preprocessing(cleaned_text)
             propositions = extract_propositions(cleaned_text)
+            with open(f"vector_store/{filename}.pkl", "wb") as f:
+                    pickle.dump(propositions, f)
             embeddings = embed_sentences(propositions)
             vector_index = create_index(embeddings)
-            save_index(vector_index, "vector_store/faiss.index")
+            save_index(vector_index, f"vector_store/{filename}.index")
             summary = generate_summary(cleaned_text)
+        session["summary"] = summary
+        return redirect(url_for("upload.summary"))
+    return render_template("upload.html", summary=summary)
+
+@upload_bp.route("/summary")
+def summary():
+    summary = session.get("summary")
     return render_template("summary.html", summary=summary)
