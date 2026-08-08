@@ -32,7 +32,7 @@ def upload_file():
             vector_index = create_index(embeddings)
             save_index(vector_index, f"vector_store/{filename}.index")
             summary = generate_summary(cleaned_text)
-        session["summary"] = summary
+            session["summary"] = summary
         return redirect(url_for("upload.summary"))
     return render_template("upload.html", summary=summary)
 
