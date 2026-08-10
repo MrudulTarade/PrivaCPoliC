@@ -1,5 +1,7 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template
 from routes.upload_routes import upload_bp
+import config
+
 
 app = Flask(__name__)
 app.register_blueprint(upload_bp)
@@ -11,6 +13,8 @@ def input():
 @app.route('/upload')
 def upload():
     return render_template('upload.html')
+
+app.config['SECRET_KEY'] = config.SECRET_KEY
 
 if __name__ == '__main__':
     app.run(debug=True)
