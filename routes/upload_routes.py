@@ -33,10 +33,6 @@ def upload_file():
             save_index(vector_index, f"vector_store/{filename}.index")
             summary = generate_summary(cleaned_text)
             session["summary"] = summary
-        return redirect(url_for("upload.summary"))
+        return redirect(url_for("summary.summary_page"))
     return render_template("upload.html", summary=summary)
 
-@upload_bp.route("/summary")
-def summary():
-    summary = session.get("summary")
-    return render_template("summary.html", summary=summary)
