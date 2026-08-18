@@ -1,1 +1,5 @@
-from flask import request, render_template
+import nltk
+
+def generate_answer(question, document_id):
+    
+    return True
