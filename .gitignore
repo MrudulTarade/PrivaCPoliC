@@ -1,6 +1,8 @@
 /.venv
 /.env
 /__pycache__
+/vector_store
+/vector_store/question_vector
 *.pyc
 routes/__pycache__/__init__.cpython-312.pyc
 routes/__pycache__/upload_routes.cpython-312.pyc

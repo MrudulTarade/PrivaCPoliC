@@ -9,3 +9,10 @@ def embed_sentences(sentences):
         embedding = model.encode(sentence)
         embeddings.append(embedding)
     return embeddings
+
+def embed_question(question):
+    embeddings = []
+    for words in question.split():
+        embedding = model.encode(words)
+        embeddings.append(embedding)
+    return embeddings
