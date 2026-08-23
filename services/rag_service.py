@@ -1,4 +1,6 @@
-import nltk, re, string
+import re, faiss
+import numpy as np
+from sentence_transformers import SentenceTransformer
 from services.embedding_service import embed_question
 from services.vectorization import create_index, save_index
 
