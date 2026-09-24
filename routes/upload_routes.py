@@ -18,7 +18,7 @@ def upload_page():
 @upload_bp.route('/upload', methods=["POST"])
 def upload_file():
     if request.method == 'POST':
-        file = request.files["pdf_file" ]
+        file = request.files["pdf_file"]
         if file:
             filename = secure_filename(file.filename)
             file.save(f"uploads/{filename}")
